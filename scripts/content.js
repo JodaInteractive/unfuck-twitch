@@ -4,7 +4,6 @@ async function sleep(ms) {
 
 async function waitForElement(selector) {
     while (document.querySelector(selector) === null) {
-        console.log(`Waiting for ${selector}`);
         await sleep(1000);
     }
     return document.querySelector(selector);
