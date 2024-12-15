@@ -3,6 +3,11 @@
     "description": "Fix Twitch's UX Mistakes",
     "version": "1.0",
     "manifest_version": 3,
+    "host_permissions": ["*://*.twitch.tv/*"],
+    "permissions": [
+        "webNavigation",
+        "scripting"
+    ],
     "action": {
       "default_popup": "hello.html"
     },
@@ -11,5 +16,9 @@
         "matches": ["*://*.twitch.tv/*"],
         "js": ["scripts/content.js"]
       }
-    ]
+    ],
+    "background": {
+      "service_worker": "scripts/service-worker.js",
+      "type": "module"
+    }
   }

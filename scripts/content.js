@@ -9,7 +9,8 @@ async function waitForElement(selector) {
     return document.querySelector(selector);
 }
 
-(async ()=> {
+async function unfuckTitleBar() {
+
     const persistentPlayerPromise = await waitForElement('.persistent-player');
     const channelRootPromise = await waitForElement('.channel-root__info');
     const titleBarPromise = await waitForElement('.channel-root__upper-watch');
@@ -18,5 +19,9 @@ async function waitForElement(selector) {
 
     persistentPlayer.style.top = '0px';
     channelRoot.prepend(titleBar);
+}
+
+(async ()=> {
+    await unfuckTitleBar();
 })();
 
